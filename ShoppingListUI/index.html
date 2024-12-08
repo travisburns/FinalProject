@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Inventory - Shopping List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top navigation bar with gradient background -->
+    <nav class="top-nav">
+        <div class="logo">LOGO</div>
+        <div class="nav-links">
+            <a href="#">Home</a> |
+            <a href="#">Brew</a> |
+            <a href="#">Inventory</a> |
+            <a href="#">Orders</a> |
+            <a href="#">Admin</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Date range selection area -->
+        <div class="date-range">
+            <div class="date-input">
+                <label for="start-date">Start Date:</label>
+                <input type="text" id="start-date" value="[Today's Date]" readonly>
+            </div>
+            <div class="date-input">
+                <label for="end-date">End Date:</label>
+                <input type="text" id="end-date" value="[Month from Today]" readonly>
+            </div>
+            <button class="create-list-btn">Create List</button>
+        </div>
+
+        <!-- Supplier group header -->
+        <div class="supplier-group">
+            <h2>Supplier Group: Hop Farm</h2>
+            <p class="totals">Total Weight: 55kg | Total Cost: $2,125.00</p>
+        </div>
+
+        <!-- Main data table -->
+        <table class="shopping-list">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>Type</th>
+                    <th>Reorder</th>
+                    <th>On Hand</th>
+                    <th>Scheduled</th>
+                    <th>Order Qty</th>
+                    <th>Units</th>
+                    <th>Cost/Unit</th>
+                    <th>Supplier</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4555</td>
+                    <td>Amarillo</td>
+                    <td>1</td>
+                    <td>Hop</td>
+                    <td>15</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>15</td>
+                    <td class="units-cell">
+                        <select>
+                            <option>KG</option>
+                            <option>LB</option>
+                        </select>
+                    </td>
+                    <td>$25.00</td>
+                    <td><a href="#" class="supplier-link">Hop Farm</a></td>
+                    <td><a href="#" class="details-link">Details</a></td>
+                </tr>
+                <tr>
+                    <td>4536</td>
+                    <td>Citra</td>
+                    <td>1</td>
+                    <td>Hop</td>
+                    <td>20</td>
+                    <td>8</td>
+                    <td>12</td>
+                    <td>2</td>
+                    <td class="units-cell">
+                        <select>
+                            <option>KG</option>
+                            <option>LB</option>
+                        </select>
+                    </td>
+                    <td>$30.00</td>
+                    <td><a href="#" class="supplier-link">Hop Farm</a></td>
+                    <td><a href="#" class="details-link">Details</a></td>
+                </tr>
+                <!-- Additional rows with same structure -->
+            </tbody>
+        </table>
+
+        <!-- Units conversion note -->
+        <div class="units-note">
+            <p>Units dropdown: KG → LB</p>
+            <p>Converts quantity automatically</p>
+        </div>
+
+        <!-- Place order button -->
+        <div class="order-section">
+            <button class="place-order-btn">Place Order</button>
+        </div>
+    </div>
+</body>
+</html>
