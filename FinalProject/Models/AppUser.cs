@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FinalProject.Models
+namespace FinalProject.Models;
+
+public partial class AppUser
 {
-    public partial class AppUser
-    {
-        public AppUser()
-        {
-            InventoryTransactions = new HashSet<InventoryTransaction>();
-        }
+    public int AppUserId { get; set; }
 
-        public int AppUserId { get; set; }
-        public string Name { get; set; } = null!;
+    public string Name { get; set; } = null!;
 
-        public virtual ICollection<InventoryTransaction> InventoryTransactions { get; set; }
-    }
+    public virtual ICollection<InventoryTransaction> InventoryTransactions { get; set; } = new List<InventoryTransaction>();
 }

@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalProject", "FinalProject\FinalProject.csproj", "{E8872D10-2BA7-4385-BDB1-D7AAD00EEBB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinalProject", "FinalProject\FinalProject.csproj", "{E8872D10-2BA7-4385-BDB1-D7AAD00EEBB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{512BF812-216A-48CB-AF36-061CF462396A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{512BF812-216A-48CB-AF36-061CF462396A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinalProject.API", "FinalProject.API\FinalProject.API.csproj", "{EAB9569B-406D-4D4F-A88B-C93CFDF68637}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D1560326-0DD1-4B2B-BCB1-33947DB3DD51}"
+	ProjectSection(SolutionItems) = preProject
+		nuget.config = nuget.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,10 @@ Global
 		{512BF812-216A-48CB-AF36-061CF462396A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{512BF812-216A-48CB-AF36-061CF462396A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{512BF812-216A-48CB-AF36-061CF462396A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB9569B-406D-4D4F-A88B-C93CFDF68637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB9569B-406D-4D4F-A88B-C93CFDF68637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB9569B-406D-4D4F-A88B-C93CFDF68637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB9569B-406D-4D4F-A88B-C93CFDF68637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

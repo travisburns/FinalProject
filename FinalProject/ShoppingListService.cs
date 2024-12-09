@@ -12,25 +12,6 @@ public class ShoppingListService
         _context = context;
     }
 
-    public class ShoppingListGroup
-    {
-        public int? SupplierId { get; set; }
-        public string SupplierName { get; set; }
-        public List<ShoppingListItem> Items { get; set; } = new List<ShoppingListItem>();
-        public decimal TotalCost => Items.Sum(i => i.TotalCost);
-        public double TotalWeight => Items.Sum(i => i.QuantityToOrder);
-    }
-
-    public class ShoppingListItem
-    {
-        public Ingredient Ingredient { get; set; }
-        public double QuantityToOrder { get; set; }
-        public double CurrentOrders { get; set; }
-        public double ScheduledUsage { get; set; }
-        public decimal UnitCost { get; set; }
-        public decimal TotalCost => (decimal)QuantityToOrder * UnitCost;
-    }
-
     public List<ShoppingListGroup> GetShoppingList(DateTime startDate, DateTime endDate)
     {
         // Get ingredients needing reorder
@@ -51,8 +32,8 @@ public class ShoppingListService
                     Items = g.Select(i => new ShoppingListItem
                     {
                         Ingredient = i,
-                        QuantityToOrder = CalculateOrderQuantity(i, startDate, endDate),
-                        CurrentOrders = GetCurrentOrders(i.IngredientId),
+                        QuantityToOrder = (decimal)CalculateOrderQuantity(i, startDate, endDate),  // Add cast here
+                        CurrentOrders = (decimal)GetCurrentOrders(i.IngredientId),                 // Add cast here
                         ScheduledUsage = GetScheduledUsage(i.IngredientId, startDate, endDate),
                         UnitCost = i.UnitCost
                     }).ToList()
@@ -84,14 +65,12 @@ public class ShoppingListService
 
     private double GetScheduledUsage(int ingredientId, DateTime startDate, DateTime endDate)
     {
-       
         var scheduledBatches = _context.Batches
             .Where(b => b.ScheduledStartDate >= startDate && b.ScheduledStartDate <= endDate);
 
         // Get recipes for these batches
         var recipeIds = scheduledBatches.Select(b => b.RecipeId).Distinct();
 
-      
         var usage = _context.RecipeIngredients
             .Where(ri => recipeIds.Contains(ri.RecipeId) && ri.IngredientId == ingredientId)
             .Join(scheduledBatches,
