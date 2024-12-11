@@ -66,20 +66,20 @@ public class ShoppingListController : ControllerBase
                 return NotFound($"Ingredient with ID {ingredientId} not found");
             }
             var orders = _context.IngredientInventoryAdditions
-     .Where(a => a.IngredientId == ingredientId)  // Remove TransactionDate check
-     .Select(a => new
-     {
-         ExpectedDate = a.EstimatedDeliveryDate,
-         a.Quantity,
-         a.UnitCost,
-         SupplierInfo = new
-         {
-             a.Supplier.Name,
-             a.Supplier.Phone,
-             a.Supplier.Email
-         }
-     })
-     .ToList();
+        .Where(a => a.IngredientId == ingredientId)
+        .Select(a => new
+        {
+            EstimatedDeliveryDate = a.EstimatedDeliveryDate,
+            a.Quantity,
+            a.UnitCost,
+            SupplierInfo = new
+            {
+                a.Supplier.Name,
+                a.Supplier.Phone,
+                a.Supplier.Email
+            }
+        })
+        .ToList();
             return Ok(orders);
         }
         catch (Exception ex)

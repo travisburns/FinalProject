@@ -26,5 +26,5 @@ public partial class IngredientInventoryAddition
     public virtual Ingredient Ingredient { get; set; } = null!;
 
     public virtual Supplier Supplier { get; set; } = null!;
-    public DateTime? ExpectedDate { get; set; }
+  
 }
